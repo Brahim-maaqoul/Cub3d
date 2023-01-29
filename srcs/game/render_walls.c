@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   render_walls.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmaaqoul <bmaaqoul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: babkar <babkar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 21:04:52 by babkar            #+#    #+#             */
-/*   Updated: 2023/01/25 14:12:17 by bmaaqoul         ###   ########.fr       */
+/*   Updated: 2023/01/27 04:29:39 by babkar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../cub3D.h"
 
 int	*get_color_from_texture(t_game *game, double ray_angle)
 {

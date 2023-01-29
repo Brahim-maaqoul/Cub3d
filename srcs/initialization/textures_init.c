@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   textures_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmaaqoul <bmaaqoul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: babkar <babkar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 21:23:44 by babkar            #+#    #+#             */
-/*   Updated: 2023/01/25 14:12:17 by bmaaqoul         ###   ########.fr       */
+/*   Updated: 2023/01/27 04:29:39 by babkar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../cub3D.h"
 
 t_game	north_texture(t_game game, int width, int heigth)
 {

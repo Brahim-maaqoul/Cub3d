@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: babkar <babkar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 01:25:02 by babkar            #+#    #+#             */
-/*   Updated: 2023/01/28 19:36:42 by babkar           ###   ########.fr       */
+/*   Created: 2023/01/28 19:05:49 by babkar            #+#    #+#             */
+/*   Updated: 2023/01/28 20:02:23 by babkar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "../cub3D.h"
 
-char	**ft_realloc(char **map, int size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	char	**new_map;
-	int		i;
+	size_t	i;
 
 	i = 0;
-	if (map == NULL)
-		return ((char **)malloc((size + 1) * sizeof(char *)));
-	if (size == 0)
-		return (NULL);
-	new_map = (char **)malloc((size + 1) * sizeof(char *));
-	if (!new_map)
-		exit(1);
-	while (i < size)
+	if (dstsize != 0)
 	{
-		new_map[i] = map[i];
-		i++;
+		while (i < dstsize - 1 && src[i])
+		{
+			dst [i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
 	}
-	new_map[size] = NULL;
-	free(map);
-	return (new_map);
+	return (ft_strlen(src));
 }

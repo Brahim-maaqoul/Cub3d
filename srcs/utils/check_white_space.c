@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   check_white_space.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: babkar <babkar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 01:25:02 by babkar            #+#    #+#             */
-/*   Updated: 2023/01/28 19:36:42 by babkar           ###   ########.fr       */
+/*   Created: 2023/01/28 20:50:17 by babkar            #+#    #+#             */
+/*   Updated: 2023/01/29 01:38:15 by babkar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "../cub3D.h"
 
-char	**ft_realloc(char **map, int size)
+int	check_tabs(char *str)
 {
-	char	**new_map;
 	int		i;
 
 	i = 0;
-	if (map == NULL)
-		return ((char **)malloc((size + 1) * sizeof(char *)));
-	if (size == 0)
-		return (NULL);
-	new_map = (char **)malloc((size + 1) * sizeof(char *));
-	if (!new_map)
-		exit(1);
-	while (i < size)
+	while (str[i])
 	{
-		new_map[i] = map[i];
+		if (str[i] == '\t')
+		{
+			write(2, "remove tabs\n", ft_strlen("remove tabs\n"));
+			exit(1);
+		}
 		i++;
 	}
-	new_map[size] = NULL;
-	free(map);
-	return (new_map);
+	return (0);
 }

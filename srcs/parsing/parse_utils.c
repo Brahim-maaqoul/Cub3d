@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmaaqoul <bmaaqoul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: babkar <babkar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 04:52:15 by babkar            #+#    #+#             */
-/*   Updated: 2023/01/25 14:12:17 by bmaaqoul         ###   ########.fr       */
+/*   Updated: 2023/01/28 19:50:03 by babkar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../cub3D.h"
 
 int	count_splited(char **str)
 {
@@ -38,21 +38,18 @@ int	count_char(char *str, char c)
 	return (count);
 }
 
-char	*skip_empty_line(int fd)
+t_game	skip_empty_line(t_game game)
 {
-	char	*line;
-
-	line = get_next_line(fd);
-	while (line)
+	while (game.parse.line)
 	{
-		if (!empty_line(line))
+		if (!empty_line(game.parse.line))
 			break ;
-		free (line);
-		line = get_next_line(fd);
-		if (!line)
+		free (game.parse.line);
+		game.parse.line = get_next_line(game.parse.fd);
+		if (!game.parse.line)
 			break ;
 	}
-	return (line);
+	return (game);
 }
 
 int	empty_line(char *line)

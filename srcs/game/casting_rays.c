@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   casting_rays.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmaaqoul <bmaaqoul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: babkar <babkar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 21:08:13 by babkar            #+#    #+#             */
-/*   Updated: 2023/01/25 15:08:13 by bmaaqoul         ###   ########.fr       */
+/*   Updated: 2023/01/27 04:29:39 by babkar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../cub3D.h"
 
 t_game	*v_intrsct(t_game *game, double angle, double y_steps, double x_steps)
 {

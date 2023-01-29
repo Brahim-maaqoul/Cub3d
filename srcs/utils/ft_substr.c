@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: babkar <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: babkar <babkar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 14:30:41 by babkar            #+#    #+#             */
-/*   Updated: 2021/11/17 10:18:05 by babkar           ###   ########.fr       */
+/*   Updated: 2023/01/28 23:38:03 by babkar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "utils.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)

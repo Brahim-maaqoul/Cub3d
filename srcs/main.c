@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmaaqoul <bmaaqoul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: babkar <babkar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 20:58:50 by babkar            #+#    #+#             */
-/*   Updated: 2023/01/25 14:18:18 by bmaaqoul         ###   ########.fr       */
+/*   Updated: 2023/01/29 01:37:59 by babkar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3D.h"
 
 int	ft_exit(t_game *map)
 {
@@ -64,7 +64,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		puterr("enter the valid arguments!!\n");
-	check_ext(argv[1]);
+	check_map_extension(argv[1]);
 	game = initialize_struct();
 	game = parse(argv, game);
 	ft_window(&game.mlx, game);

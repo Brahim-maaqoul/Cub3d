@@ -3,21 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmaaqoul <bmaaqoul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: babkar <babkar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 04:54:14 by babkar            #+#    #+#             */
-/*   Updated: 2023/01/25 14:12:17 by bmaaqoul         ###   ########.fr       */
+/*   Updated: 2023/01/29 01:51:53 by babkar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../cub3D.h"
 
-t_game	parse_identifiers(int fd, t_game game)
+t_game	parse_identifiers(t_game game)
 {
+	int		counter;
+	int		i;
 	char	*line;
 
-	line = get_next_line(fd);
-	game = check_indentifiers(fd, game, line);
+	counter = 0;
+	game.parse.line = get_next_line(game.parse.fd);
+	while (game.parse.line && counter != 6)
+	{
+		i = 0;
+		while (game.parse.line[i] && game.parse.line[i] == ' ')
+			i++;
+		check_tabs(game.parse.line);
+		line = ft_substr(game.parse.line, i, ft_strlen(game.parse.line));
+		game = get_counter(game, &counter, line);
+		free(game.parse.line);
+		free(line);
+		game.parse.line = get_next_line(game.parse.fd);
+	}
+	if (counter != 6)
+		puterr("An identifier is missing!\n");
 	if (game.floor.trgb == game.ceiling.trgb)
 		puterr("Floor and ceiling have the same color!\n");
 	return (game);
@@ -25,28 +41,25 @@ t_game	parse_identifiers(int fd, t_game game)
 
 t_game	parse(char **argv, t_game game)
 {
-	int		fd;
-	char	*line;
-	char	**map_str;
-
-	map_str = NULL;
-	fd = open(argv[1], O_RDWR);
-	if (fd == -1)
+	game.parse.map_str = NULL;
+	game.parse.fd = open(argv[1], O_RDWR);
+	if (game.parse.fd == -1)
 		puterr("fd error\n");
-	game = parse_identifiers(fd, game);
-	line = skip_empty_line(fd);
-	if (!line)
+	game = parse_identifiers(game);
+	game = skip_empty_line(game);
+	if (!game.parse.line)
 		puterr("map order reversed\n");
-	while (line)
+	while (game.parse.line)
 	{
 		game.nbr_lines++;
-		if (empty_line(line))
+		check_tabs(game.parse.line);
+		if (empty_line(game.parse.line))
 			puterr("empty line\n");
-		map_str = read_map(line, map_str);
-		line = get_next_line(fd);
+		game = read_map(game);
+		free (game.parse.line);
+		game.parse.line = get_next_line(game.parse.fd);
 	}
-	check_map(map_str, &game);
-	ft_free(map_str);
-	close(fd);
+	check_map(game.parse.map_str, &game);
+	close(game.parse.fd);
 	return (game);
 }

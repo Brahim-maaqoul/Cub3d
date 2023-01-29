@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse_second_identifiers.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmaaqoul <bmaaqoul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: babkar <babkar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 05:00:55 by babkar            #+#    #+#             */
-/*   Updated: 2023/01/25 14:12:17 by bmaaqoul         ###   ########.fr       */
+/*   Updated: 2023/01/29 01:36:19 by babkar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../cub3D.h"
 
 int	count_point(char *str)
 {
@@ -30,7 +30,7 @@ int	count_point(char *str)
 	return (1);
 }
 
-int	check_extension(char *str)
+int	check_texture_extension(char *str)
 {
 	char		*s;
 	size_t		i;
@@ -45,28 +45,38 @@ int	check_extension(char *str)
 	return (0);
 }
 
+void	check_colors(t_color *color)
+{
+	if (color->red < 0 || color->red > 255)
+		puterr("check the color floor line\n");
+	if (color->green < 0 || color->green > 255)
+		puterr("check the color floor line\n");
+	if (color->blue < 0 || color->blue > 255)
+		puterr("check the color floor line\n");
+}
+
 int	parse_color_floor(char *color, t_color *floor)
 {
 	char		**splited;
 	static int	done;
+	int			i;
 
+	i = 0;
 	if (done == 1)
 		puterr("check the color floor line\n");
-	color = ft_substr(color, 2, ft_strlen(color));
+	i++;
+	while (color[i] && color[i] == ' ')
+		i++;
+	color = ft_substr(color, i, ft_strlen(color));
 	splited = ft_split(color, ',');
 	if (count_splited(splited) != 3)
 		puterr("check the color floor line\n");
 	if (count_char(color, ',') != 2)
 		puterr("check the color floor line\n");
 	floor->red = ft_atoi(splited[0]);
-	if (floor->red < 0 || floor->red > 255)
-		puterr("check the color floor line\n");
 	floor->green = ft_atoi(splited[1]);
-	if (floor->green < 0 || floor->green > 255)
-		puterr("check the color floor line\n");
 	floor->blue = ft_atoi(splited[2]);
-	if (floor->blue < 0 || floor->blue > 255)
-		puterr("check the color floor line\n");
+	check_colors(floor);
 	done = 1;
 	floor->trgb = create_trgb(0, floor->red, floor->green, floor->blue);
 	ft_free(splited);
@@ -78,24 +88,24 @@ int	parse_color_ceiling(char *color, t_color *ceiling)
 {
 	char		**splited;
 	static int	done;
+	int			i;
 
+	i = 0;
 	if (done == 1)
 		puterr("check the color ceiling line\n");
-	color = ft_substr(color, 2, ft_strlen(color));
+	i++;
+	while (color[i] && color[i] == ' ')
+		i++;
+	color = ft_substr(color, i, ft_strlen(color));
 	splited = ft_split(color, ',');
 	if (count_splited(splited) != 3)
-		puterr("check the color ceiling line\n");
+		puterr("check the numbers\n");
 	if (count_char(color, ',') != 2)
-		puterr("check the color ceiling line\n");
+		puterr("check the colons \n");
 	ceiling->red = ft_atoi(splited[0]);
-	if (ceiling->red < 0 || ceiling->red > 255)
-		puterr("check the color ceiling line\n");
 	ceiling->green = ft_atoi(splited[1]);
-	if (ceiling->green < 0 || ceiling->green > 255)
-		puterr("check the color ceiling line\n");
 	ceiling->blue = ft_atoi(splited[2]);
-	if (ceiling->blue < 0 || ceiling->blue > 255)
-		puterr("check the color ceiling line\n");
+	check_colors(ceiling);
 	done = 1;
 	ceiling->trgb = create_trgb(0, ceiling->red, ceiling->green, ceiling->blue);
 	ft_free(splited);

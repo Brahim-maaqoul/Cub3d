@@ -6,7 +6,7 @@
 /*   By: babkar <babkar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 09:08:03 by babkar            #+#    #+#             */
-/*   Updated: 2023/01/24 00:21:43 by babkar           ###   ########.fr       */
+/*   Updated: 2023/01/29 00:52:18 by babkar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	ft_atoi(const char *str)
 		sign *= (-1);
 	if (*str == 45 || *str == 43)
 		str++;
-	if (!ft_isdigit(*str))
-		return (0);
 	while (ft_isdigit(*str))
 		num = num * 10 + (*str++ - 48);
+	if (!ft_isdigit(*str) && ft_isdigit(*(str + 1)))
+		return (-1);
 	return (num * sign);
 }

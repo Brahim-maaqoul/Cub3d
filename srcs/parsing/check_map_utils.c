@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmaaqoul <bmaaqoul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: babkar <babkar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:41:03 by bmaaqoul          #+#    #+#             */
-/*   Updated: 2023/01/25 14:15:26 by bmaaqoul         ###   ########.fr       */
+/*   Updated: 2023/01/28 20:24:03 by babkar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../cub3D.h"
 
 int	ft_check_player(char **str)
 {
@@ -59,7 +59,7 @@ int	check_characters(char **str)
 	return (1);
 }
 
-void	check_ext(char *av)
+void	check_map_extension(char *av)
 {
 	int	len;
 

@@ -3,27 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmaaqoul <bmaaqoul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: babkar <babkar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 05:01:20 by babkar            #+#    #+#             */
-/*   Updated: 2023/01/25 18:27:11 by bmaaqoul         ###   ########.fr       */
+/*   Updated: 2023/01/29 01:25:57 by babkar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../cub3D.h"
 
-char	**read_map(char *line, char **map)
+t_game	read_map(t_game game)
 {
 	static int	counter;
-	int			i;
 
-	i = 0;
 	counter++;
-	map = ft_realloc(map, counter);
-	if (!map)
+	game.parse.map_str = ft_realloc(game.parse.map_str, counter);
+	if (!game.parse.map_str)
 		exit(1);
-	map[counter - 1] = line;
-	return (map);
+	game.parse.map_str[counter - 1] = ft_strdup(game.parse.line);
+	return (game);
 }
 
 int	get_map_longest_line(char **map_str, t_game *game)

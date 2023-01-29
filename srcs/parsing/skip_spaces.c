@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   skip_spaces.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmaaqoul <bmaaqoul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: babkar <babkar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 22:30:17 by bmaaqoul          #+#    #+#             */
-/*   Updated: 2023/01/25 14:16:31 by bmaaqoul         ###   ########.fr       */
+/*   Updated: 2023/01/27 04:29:39 by babkar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../cub3D.h"
 
 int	skip_first_spaces(char **str, int i)
 {

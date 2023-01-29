@@ -6,7 +6,7 @@
 /*   By: babkar <babkar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 01:25:42 by babkar            #+#    #+#             */
-/*   Updated: 2023/01/23 22:43:25 by babkar           ###   ########.fr       */
+/*   Updated: 2023/01/28 23:48:16 by babkar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <stdlib.h>
 # include <math.h>
 
+int		check_tabs(char *str);
 int		create_trgb(int t, int r, int g, int b);
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
@@ -35,6 +36,8 @@ void	puterr(char *str);
 char	**ft_realloc(char **str, int size);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
+char	*ft_strdup(const char *s1);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *s);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);

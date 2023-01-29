@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bmaaqoul <bmaaqoul@student.42.fr>          +#+  +:+       +#+         #
+#    By: babkar <babkar@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/22 23:52:21 by babkar            #+#    #+#              #
-#    Updated: 2023/01/25 18:24:00 by bmaaqoul         ###   ########.fr        #
+#    Updated: 2023/01/28 20:55:57 by babkar           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = cub3D
 
 CFLAGS =  -Wextra -Wall -Werror
 
-HEADERS =  srcs/cub3d.h srcs/utils/utils.h
+HEADERS =  srcs/cub3D.h srcs/utils/utils.h srcs/parsing/parsing.h srcs/initialization/initialization.h
 
 SRCS = srcs/main.c \
 srcs/initialization/initialize_struct.c \
@@ -35,7 +35,7 @@ srcs/game/render_walls.c \
 srcs/game/render.c \
 srcs/game/update_player_position.c \
 srcs/game/wall_collision_sliding.c \
-srcs/utils/my_mlx_pixel_put.c \
+srcs/utils/check_white_space.c \
 srcs/utils/create_trgb.c \
 srcs/utils/degree_to_radian.c \
 srcs/utils/distance_between_two_points.c \
@@ -49,8 +49,11 @@ srcs/utils/ft_putstr_fd.c \
 srcs/utils/ft_realloc.c \
 srcs/utils/ft_split.c \
 srcs/utils/ft_strchr.c \
+srcs/utils/ft_strdup.c \
+srcs/utils/ft_strlcpy.c \
 srcs/utils/ft_strlen.c \
 srcs/utils/ft_strncmp.c \
+srcs/utils/my_mlx_pixel_put.c \
 srcs/utils/ft_substr.c \
 srcs/utils/puterr.c \
 srcs/utils/get_next_line.c \
